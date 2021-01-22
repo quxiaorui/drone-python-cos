@@ -18,19 +18,3 @@ steps:
     repo: registry.cn-hangzhou.aliyuncs.com/maximlab/python
     dockerfile: Dockerfile
     tags: cos
-- name: email
-  image: drillster/drone-email
-  settings:
-    from: info@maximlab.cn
-    host:
-      from_secret: email_host
-    port: 465
-    username:
-      from_secret: email_username
-    password:
-      from_secret: email_password
-    recipients:
-      - quxiaorui@qq.com
-  when:
-    status: [success,changed,failure]
-    branch: [master]
